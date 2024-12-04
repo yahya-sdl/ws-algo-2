@@ -1,0 +1,39 @@
+ALGORITHME AnalysePhrase
+    // Déclaration des variables
+    longueur <- 0
+    nbMots <- 0
+    nbVoyelles <- 0
+    caractere <- ""
+    voyelles <- "aeiouyAEIOUY"
+    enMot <- FAUX
+
+    // Lire les caractères de la phrase
+    ECRIRE "Entrez la phrase (terminée par un point) :"
+    REPETER
+        LIRE caractere
+
+        // Incrémenter la longueur de la phrase
+        longueur <- longueur + 1
+
+        // Vérifier si le caractère est une voyelle
+        SI caractere DANS voyelles ALORS
+            nbVoyelles <- nbVoyelles + 1
+        FINSI
+
+        // Compter les mots
+        SI caractere = " " OU caractere = "." ALORS
+            SI enMot = VRAI ALORS
+                nbMots <- nbMots + 1
+            FINSI
+            enMot <- FAUX
+        SINON
+            enMot <- VRAI
+        FINSI
+
+    JUSQU'A caractere = "."
+
+    // Afficher les résultats
+    ECRIRE "Longueur de la phrase :", longueur
+    ECRIRE "Nombre de mots :", nbMots
+    ECRIRE "Nombre de voyelles :", nbVoyelles
+FIN ALGORITHME
